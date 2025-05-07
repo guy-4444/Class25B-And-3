@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnUpdate.setOnClickListener { updateFromSp() }
 
         mspv2 = MSPV2(this)
-        MSPV3.init(this)
     }
 
     private fun writeToSp() {
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 //        mspv2.putInt(SP_SCORE, 200)
 
         MSPV3.getInstance().putString(SP_NAME, "Avi")
-        MSp_Helper.getInstance().putInt(SP_SCORE, 200)
+        MSPV3.getInstance().putInt(SP_SCORE, 1200)
     }
 
     private fun readFromSp() {
@@ -47,14 +46,14 @@ class MainActivity : AppCompatActivity() {
 //        val name = mspv2.getString(SP_NAME, "Unknown")
 //        val score = mspv2.getInt(SP_SCORE, -1)
 
-        val name = mspv3.getString(SP_NAME, "Unknown")
-        val score = mspv3.getInt(SP_SCORE, -1)
+        val name = MSPV3.getInstance().getString(SP_NAME, "Unknown")
+        val score = MSPV3.getInstance().getInt(SP_SCORE, -1)
 
 
         binding.lblInfo.text = "name: $name, score: $score"
     }
 
     private fun updateFromSp() {
-
+        MySignal.getInstance().vibrate(800)
     }
 }
