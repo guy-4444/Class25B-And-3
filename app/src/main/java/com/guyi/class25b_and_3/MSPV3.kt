@@ -8,6 +8,7 @@ class MSPV3 {
 
     private val SP_FILE_NAME = "MySpFile"
 
+
     private lateinit var sharedPreferences: SharedPreferences
 
     private constructor(context: Context) {
